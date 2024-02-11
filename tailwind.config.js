@@ -40,12 +40,23 @@ module.exports = {
       toast: 70,
       tooltip: 80,
     },
+    extend: {
+      colors: {
+        primary: {
+          900: "#344256",
+          800: "#475569",
+          700: "#64758b",
+          600: "#afb9c8",
+          100: "#e2e8f0",
+        },
+      },
+    },
   },
-  plugins: [slots()],
+  plugins: [slots(), require("tailwindcss-react-aria-components")],
 };
 
 function slots() {
   return function ({ matchVariant }) {
-    matchVariant("slot", value => `& [slot=${value}]`);
+    matchVariant("slot", (value) => `& [slot=${value}]`);
   };
 }
